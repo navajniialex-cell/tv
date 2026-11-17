@@ -36,10 +36,17 @@
         localStorage.setItem('plugins', JSON.stringify(defaultPlugins));
       }
 
+      var fixScript = '<script>' +
+        'window.addEventListener("error",function(e){if(e&&e.message&&e.message.indexOf("Script error")!==-1){e.stopImmediatePropagation();e.preventDefault();}},true);' +
+        'function _tsLock(){try{history.pushState({lampa:1},"",location.href);}catch(e){}}' +
+        '_tsLock();' +
+        'window.addEventListener("popstate",function(){_tsLock();if(window.Lampa&&Lampa.Controller){Lampa.Controller.back();}});' +
+        '<\/script>';
+
       fetch('https://yumata.github.io/lampa/index.html')
         .then(function (r) { return r.text(); })
         .then(function (html) {
-          html = html.replace('<head>', '<head><base href="https://yumata.github.io/lampa/">');
+          html = html.replace('<head>', '<head><base href="https://yumata.github.io/lampa/">' + fixScript);
           document.open();
           document.write(html);
           document.close();
