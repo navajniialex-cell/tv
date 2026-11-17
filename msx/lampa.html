@@ -2,14 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lampa - ТехноШаман TV</title>
-    <base href="https://yumata.github.io/lampa/">
-    <link rel="stylesheet" href="./css/app.css">
+    <style>
+        body { background: #141414; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+    </style>
+</head>
+<body>
+    <div>Загрузка Lampa...</div>
     <script>
         (function () {
-            // Базовые настройки для стабильной работы на ТВ и загрузки постеров
             if (!localStorage.getItem('ts_lampa_configured')) {
                 localStorage.setItem('language', 'ru');
                 localStorage.setItem('source', 'tmdb');
@@ -19,7 +20,6 @@
                 localStorage.setItem('ts_lampa_configured', '1');
             }
 
-            // Предустановка рабочих онлайн-плагинов
             var defaultPlugins = [
                 { url: 'https://bwa.to/rc', status: 1, name: 'BWA Online', author: 'bwa' },
                 { url: 'https://nb557.github.io/plugins/online_mod.js', status: 1, name: 'Online Mod', author: 'nb557' },
@@ -29,23 +29,25 @@
             try {
                 var saved = JSON.parse(localStorage.getItem('plugins') || '[]');
                 defaultPlugins.forEach(function (def) {
-                    var exists = saved.some(function (p) { return p.url === def.url; });
-                    if (!exists) saved.push(def);
+                    if (!saved.some(function (p) { return p.url === def.url; })) saved.push(def);
                 });
                 localStorage.setItem('plugins', JSON.stringify(saved));
             } catch (e) {
                 localStorage.setItem('plugins', JSON.stringify(defaultPlugins));
             }
+
+            fetch('https://yumata.github.io/lampa/index.html')
+                .then(function (r) { return r.text(); })
+                .then(function (html) {
+                    html = html.replace('<head>', '<head><base href="https://yumata.github.io/lampa/">');
+                    document.open();
+                    document.write(html);
+                    document.close();
+                })
+                .catch(function () {
+                    location.href = 'http://lampa.mx';
+                });
         })();
     </script>
-</head>
-<body>
-    <div class="welcome"></div>
-    <div id="app"></div>
-    <script src="./vender/jquery/jquery.js"></script>
-    <script src="./vender/notify/notify.js"></script>
-    <script src="./vender/scroll/scroll.js"></script>
-    <script src="./vender/keypad/keypad.js"></script>
-    <script src="./app.min.js"></script>
 </body>
 </html>
