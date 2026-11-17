@@ -1,0 +1,121 @@
+{
+  "name": "ТехноШаман TV",
+  "version": "2.0.0",
+  "reference": "https://navajniialex-cell.github.io/tv/msx/start.json",
+  "type": "pages",
+  "headline": "ТехноШаман TV",
+  "template": {
+    "type": "button",
+    "layout": "0,0,3,3",
+    "color": "msx-glass",
+    "iconSize": "large"
+  },
+  "pages": [
+    {
+      "headline": "Кино, сериалы и плееры",
+      "items": [
+        {
+          "label": "Lampa PRO",
+          "titleFooter": "Готовая сборка с плагинами 4K",
+          "icon": "local-movies",
+          "color": "msx-deep-purple",
+          "layout": "0,0,3,3",
+          "action": "link:https://navajniialex-cell.github.io/tv/msx/lampa.html"
+        },
+        {
+          "label": "Zona",
+          "titleFooter": "Фильмы и сериалы (MSX)",
+          "icon": "movie",
+          "color": "msx-blue",
+          "layout": "3,0,3,3",
+          "action": "link:http://m.zona.ms"
+        },
+        {
+          "label": "VoKino",
+          "titleFooter": "Кинотеатр с выбором озвучек",
+          "icon": "ondemand-video",
+          "color": "msx-indigo",
+          "layout": "6,0,3,3",
+          "action": "link:http://web.vokino.tv"
+        },
+        {
+          "label": "Atodo",
+          "titleFooter": "Каталог кино без настройки",
+          "icon": "video-library",
+          "color": "msx-teal",
+          "layout": "9,0,3,3",
+          "action": "link:http://atodo.fun"
+        },
+        {
+          "label": "OTT-play",
+          "titleFooter": "Удобный плеер для IPTV",
+          "icon": "live-tv",
+          "color": "msx-green",
+          "layout": "0,3,3,3",
+          "action": "link:http://ott-play.com/f/"
+        },
+        {
+          "label": "SS IPTV",
+          "titleFooter": "Плеер эфирных телеканалов",
+          "icon": "tv",
+          "color": "msx-orange",
+          "layout": "3,3,3,3",
+          "action": "link:http://app.ss-iptv.com"
+        },
+        {
+          "label": "MSXPlayer",
+          "titleFooter": "Магазин порталов и GetsTV",
+          "icon": "apps",
+          "color": "msx-blue-grey",
+          "layout": "6,3,3,3",
+          "action": "link:http://msxplayer.ru"
+        },
+        {
+          "label": "Lampa Clean",
+          "titleFooter": "Официальный зеркальный клиент",
+          "icon": "settings-Input-antenna",
+          "color": "msx-brown",
+          "layout": "9,3,3,3",
+          "action": "link:http://lampa.mx"
+        }
+      ]
+    },
+    {
+      "headline": "Бесплатные IPTV-плейлисты (Прямой эфир)",
+      "items": [
+        {
+          "label": "Русскоязычные (250+)",
+          "titleFooter": "Автообновляемый сборник IPTV-org",
+          "icon": "live-tv",
+          "color": "msx-blue",
+          "layout": "0,0,6,3",
+          "action": "content:user:https://msx.benzac.de/services/m3u.php?type=video&mode=extended&headline=IPTV%20RUS&url=https://iptv-org.github.io/iptv/languages/rus.m3u"
+        },
+        {
+          "label": "Россия: Эфирные и HD",
+          "titleFooter": "Федеральные и тематические каналы",
+          "icon": "hd",
+          "color": "msx-green",
+          "layout": "6,0,6,3",
+          "action": "content:user:https://msx.benzac.de/services/m3u.php?type=video&mode=extended&headline=Russia%20TV&url=https://smart-iptv.ru/russia.m3u"
+        },
+        {
+          "label": "Весь мир (10 000+)",
+          "titleFooter": "Каналы по категориям: кино, спорт, музыка",
+          "icon": "language",
+          "color": "msx-deep-purple",
+          "layout": "0,3,6,3",
+          "action": "content:user:https://msx.benzac.de/services/m3u.php?type=video&mode=extended&headline=World%20IPTV&url=https://iptv-org.github.io/iptv/index.category.m3u"
+        },
+        {
+          "label": "Free-TV: HD сборник",
+          "titleFooter": "Проверенные международные и РФ потоки",
+          "icon": "verified",
+          "color": "msx-teal",
+          "layout": "6,3,6,3",
+          "action": "content:user:https://msx.benzac.de/services/m3u.php?type=video&mode=extended&headline=Free-TV%20HD&url=https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8"
+        }
+      ]
+    }
+  ]
+}
